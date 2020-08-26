@@ -43,8 +43,10 @@ defmodule Firmware.MixProject do
       {:shoehorn, "~> 0.6"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
-      {:ui, path: "../ui", targets: @all_targets, env: Mix.env()},
-      {:mqtt, path: "../mqtt", targets: @all_targets, env: Mix.env()},
+      {:ui, path: "../ui", env: Mix.env()},
+      {:mqtt, path: "../mqtt", env: Mix.env()},
+      #{:ui, path: "../ui", targets: @all_targets, env: Mix.env()},
+      #{:mqtt, path: "../mqtt", targets: @all_targets, env: Mix.env()},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
