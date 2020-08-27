@@ -15,6 +15,15 @@ defmodule Mqtt.Application do
   # end
 
   def start(_type, _args) do
+    # DONT DO THIS HERE! ONLY FOR TESTING!!!!
+    Tortoise.Supervisor.start_child(
+      client_id: "my_client_id",
+      # handler: {Tortoise.Handler.Logger, []},
+      handler: {Mqtt.MqttHandler, []},
+      server: {Tortoise.Transport.Tcp, host: "test.mosquitto.org", port: 1883},
+      subscriptions: [{"test/channel123", 0}]
+    )
+
     children = []
     opts = [strategy: :one_for_one, name: Mqtt.Supervisor]
 

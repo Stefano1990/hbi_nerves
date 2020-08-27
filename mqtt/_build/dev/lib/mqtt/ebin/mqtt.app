@@ -1,7 +1,9 @@
 {application,mqtt,
-             [{applications,[kernel,stdlib,elixir,logger,tortoise]},
+             [{applications,[kernel,stdlib,elixir,logger,tortoise,
+                             nerves_leds]},
               {description,"mqtt"},
-              {modules,['Elixir.Mqtt.Application']},
+              {modules,['Elixir.Mqtt.Application','Elixir.Mqtt.Led',
+                        'Elixir.Mqtt.MqttHandler']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Mqtt.Application',[]}}]}.
