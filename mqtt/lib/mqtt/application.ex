@@ -11,13 +11,13 @@ defmodule Mqtt.Application do
     #   subscriptions: [{"test/channel123", 0}]
     # )
 
-  #   Tortoise.publish("my_client_id", "test/channel123", "Hello from the World of Tomorrow !", qos: 0)
+  #   Tortoise.publish("my_client_id2", "test/channel123", "Hello from the World of Tomorrow !", qos: 0)
   # end
 
   def start(_type, _args) do
     # DONT DO THIS HERE! ONLY FOR TESTING!!!!
     Tortoise.Supervisor.start_child(
-      client_id: "my_client_id",
+      client_id: "my_client_id2",
       # handler: {Tortoise.Handler.Logger, []},
       handler: {Mqtt.MqttHandler, []},
       server: {Tortoise.Transport.Tcp, host: "test.mosquitto.org", port: 1883},
